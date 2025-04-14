@@ -10,6 +10,6 @@ git pull origin master
 
 If you made some changes use:
 
-git add .
-git commit -m "Describe your changes here"
+git add . \n
+git commit -m "Describe your changes here" \n
 git push origin master
