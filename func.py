@@ -1,4 +1,4 @@
-
+!pip install rdkit
 from rdkit import Chem
 import numpy as np
 from rdkit.Chem import AllChem
