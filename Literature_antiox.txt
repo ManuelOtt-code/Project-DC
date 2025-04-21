@@ -1,0 +1,69 @@
+>Database where we get the dataset
+
+PAPER_NAME: AODB A comprehensive database for antioxidants including small molecules, peptides and proteins
+DOI: 10.1016/j.foodchem.2023.135992 (https://aodb.idruglab.cn/) 
+
+
+
+>Original Paper in Project description (DPPH IC50 classification by discriminant analysis, 200 initial descriptors)
+
+PAPER_NAME: QSAR study of phenolic  compounds and their anti‐DPPH  radical activity by discriminant  analysis
+DOI: 10.1038/s41598-022-11925-y
+
+
+
+>Antioxidance, respective endpoints and exp. methods explained (or comparison)
+
+PAPER_NAME: How to express the antioxidant properties of substances properly?
+DOI: 10.1007/s11696-021-01799-1
+PAPER_NAME: The Chemistry behind Antioxidant Capacity Assays
+DOI: 10.1021/jf030723c
+PAPER_NAME: Evaluating the antioxidant capacity of natural products: A review on chemical and cellular-based assays
+DOI: 10.1016/j.aca.2012.11.051
+PAPER_NAME: Antioxidant Activity/Capacity Measurement. 2. Hydrogen Atom Transfer (HAT)-Based, Mixed-Mode (Electron Transfer (ET)/HAT), and Lipid Peroxidation Assays
+DOI: 10.1021/acs.jafc.5b04743
+PAPER_NAME: Applicability of the DPPH Assay for Evaluating the Antioxidant Capacity of Food Additives – Inter-laboratory Evaluation Study
+DOI: 10.2116/analsci.30.717
+
+
+
+>Method how to ensure that different assay results data sources are compatible
+
+PAPER_NAME: Combining IC50 or Ki Values from Different Sources Is a Source of Significant Noise
+DOI: 10.1021/acs.jcim.4c00049
+
+
+
+>Could also be option for project?: QM/descriptor (RDKit and PM7 calculations) QSAR based on 5 different assays (DPPH classification at 300uM) (features reduced to 18 with multivariate analysis), ML models screened with EvalML and determined XGBoost as final method
+
+PAPER_NAME: Feature Selection for the Interpretation of Antioxidant Mechanisms in Plant Phenolics
+DOI: 10.3390/molecules28031454
+
+
+
+
+>DPPH activity -structure correlation (169 phenols all measured in same lab using TEAC endpoint 3D conformation optimization followed by semi-empirical quantum chemical calculation (python) of neutral molecules)
+
+PAPER_NAME: DPPH Measurements and Structure—Activity Relationship Studies on the Antioxidant Capacity of Phenols
+DOI: 10.3390/antiox13030309
+
+
+
+>Comparison 21 compound QSAR on VCEAC/TEAC values with specific descriptors related to the energetics and structural aspects of free radical scavenging processes (with DFT) with many thousand general molecular descriptors (specific better)
+
+PAPER_NAME: QSAR of the free radical scavenging potency of selected hydroxybenzoic acids and simple phenolics
+DOI: 10.1016/j.crci.2014.09.001
+
+
+
+>QM Antiox (QSAR) (probably too complicated but may have interesting stuff
+
+PAPER_NAME: Prediction of Radical Scavenging Activities of Anthocyanins Applying Adaptive Neuro-Fuzzy Inference System (ANFIS) with Quantum Chemical Descriptors
+DOI: 10.3390/ijms150814715
+PAPER_NAME: Current Trends in Computational Quantum Chemistry Studies on Antioxidant Radical Scavenging Activity
+DOI: 10.1021/acs.jcim.2c00104
+PAPER_NAME: Antioxidant Activity of Selected Phenolic Acids–Ferric Reducing Antioxidant Power Assay and QSAR Analysis of the Structural Features
+DOI: 10.3390/molecules25133088
+PAPER_NAME: Non-Linear Quantitative Structure–Activity Relationships Modelling, Mechanistic Study and In-Silico Design of Flavonoids as Potent Antioxidants
+DOI: 10.3390/ijms20092328
+
