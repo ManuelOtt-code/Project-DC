@@ -14,6 +14,21 @@ import seaborn as sns
 
 
 
+def parse_experimental_data(row):
+    # Use regex to extract components
+    match = re.match(r'(IC50|EC50)\s*(>=|>|=)\s*([\d.]+)\s*(nM|ug\.mL-1|µg\.mL-1)', row)
+    if match:
+        return {
+            'activity_type': match.group(1),
+            'operator': match.group(2),
+            'activity_value': float(match.group(3)),
+            'units': match.group(4).replace('.', '')  # Remove dots (e.g., ug.mL-1 -> ugmL-1)
+        }
+    else:
+        return None
+
+
+
 def canonicalize(smiles):
     try:
 
