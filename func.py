@@ -12,6 +12,15 @@ from scipy.optimize import curve_fit
 from sklearn.metrics import r2_score, mean_absolute_error
 import seaborn as sns
 
+#additional imports from "From_AODB" for function migration
+import re
+import os
+from rdkit.Chem.MolStandardize import rdMolStandardize
+from rdkit import RDLogger
+import math
+from sklearn.manifold import TSNE
+
+
 
 
 def parse_experimental_data(row):
