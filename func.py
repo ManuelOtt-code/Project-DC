@@ -36,6 +36,25 @@ def parse_experimental_data(row):
     else:
         return None
 
+#convert units of ugmL-1 activity values in nM
+def convert_units(row):
+    """Proper unit conversion with consistent numeric output"""
+    # Check if conversion is needed and possible
+    if (row['units'] == 'ugmL-1' and
+        'Molecular Weight' in row and
+        not pd.isna(row['Molecular Weight']) and
+        not pd.isna(row['activity_value'])):
+
+        # Convert µg/mL to nM: (µg/mL * 10^6) / (g/mol) = nM
+        return round((float(row['activity_value']) * 10**6) / float(row['Molecular Weight']))
+
+    # Return original value if already in nM or no conversion possible
+    elif row['units'] == 'nM' and not pd.isna(row['activity_value']):
+        return float(row['activity_value'])
+
+    # Return NaN for unconvertable cases
+    return np.nan
+
 
 
 def canonicalize(smiles):
