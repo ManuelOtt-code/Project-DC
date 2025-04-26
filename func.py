@@ -131,46 +131,6 @@ def convert_smiles_series_to_fp_to_np_array(smiles_series):
 
 
 
-def convert_smiles_series_to_fp_to_np_array_exception_handling(smiles_series):
-    """
-    Converts a pandas Series of SMILES strings into a NumPy array of Morgan fingerprints.
-    
-    Args:
-        smiles_series (pd.Series): A pandas Series containing SMILES strings.
-
-    Returns:
-        np.ndarray: A 2D NumPy array where each row is a Morgan fingerprint.
-    """
-    # Initialize an empty list to store fingerprint arrays
-    fp_array = []
-
-    for smiles in smiles_series:
-        if not smiles or smiles is np.nan:
-            # Handle empty or invalid SMILES
-            fp_array.append(np.zeros(1024, dtype=np.int8))
-            continue
-        
-        try:
-            # Generate Morgan fingerprint
-            mol = Chem.MolFromSmiles(smiles)
-            if mol is None:
-                # Handle invalid SMILES
-                fp_array.append(np.zeros(1024, dtype=np.int8))
-                continue
-            
-            fp = AllChem.GetMorganFingerprintAsBitVect(mol, radius=2, nBits=1024)
-            arr = np.zeros((1024,), dtype=np.int8)
-            DataStructs.ConvertToNumpyArray(fp, arr)
-            fp_array.append(arr)
-        except Exception as e:
-            # Handle unexpected errors gracefully
-            print(f"Error processing SMILES: {smiles}. Exception: {e}")
-            fp_array.append(np.zeros(1024, dtype=np.int8))
-    
-    # Convert the list of arrays to a NumPy array
-    return np.array(fp_array)
-
-
 
 def transform_index(smiles1, smiles2, index):
     if smiles1 == smiles2:
