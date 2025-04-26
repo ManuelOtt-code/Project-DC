@@ -40,6 +40,9 @@ def is_substruct_in(mol_smiles, substruct_smarts):
         return 1
     else:
         return 0
+
+
+
 def get_TanimotoSimilarity(smiles_mol1, smiles_mol2):
     if smiles_mol1 is None or smiles_mol2 is None:
         return np.nan
@@ -49,6 +52,9 @@ def get_TanimotoSimilarity(smiles_mol1, smiles_mol2):
         return np.nan  
     Similarity = DataStructs.TanimotoSimilarity(fp1, fp2)
     return Similarity
+
+
+
 def get_MorganFingerprint(smiles_mol):
     if smiles_mol is None or smiles_mol is np.nan or smiles_mol == "":
         return np.nan
@@ -60,6 +66,9 @@ def get_MorganFingerprint(smiles_mol):
     DataStructs.ConvertToNumpyArray(fp, array)
 
     return fp
+
+
+
 def convert_smiles_series_to_fp_to_np_array(smiles_series):
     fps = smiles_series.apply(get_MorganFingerprint)
     fps = fps.tolist()
@@ -69,17 +78,69 @@ def convert_smiles_series_to_fp_to_np_array(smiles_series):
         DataStructs.ConvertToNumpyArray(fp, arr)
         fp_array.append(arr)
     return np.array(fp_array)
+
+
+
+def convert_smiles_series_to_fp_to_np_array_exception_handling(smiles_series):
+    """
+    Converts a pandas Series of SMILES strings into a NumPy array of Morgan fingerprints.
+    
+    Args:
+        smiles_series (pd.Series): A pandas Series containing SMILES strings.
+
+    Returns:
+        np.ndarray: A 2D NumPy array where each row is a Morgan fingerprint.
+    """
+    # Initialize an empty list to store fingerprint arrays
+    fp_array = []
+
+    for smiles in smiles_series:
+        if not smiles or smiles is np.nan:
+            # Handle empty or invalid SMILES
+            fp_array.append(np.zeros(1024, dtype=np.int8))
+            continue
+        
+        try:
+            # Generate Morgan fingerprint
+            mol = Chem.MolFromSmiles(smiles)
+            if mol is None:
+                # Handle invalid SMILES
+                fp_array.append(np.zeros(1024, dtype=np.int8))
+                continue
+            
+            fp = AllChem.GetMorganFingerprintAsBitVect(mol, radius=2, nBits=1024)
+            arr = np.zeros((1024,), dtype=np.int8)
+            DataStructs.ConvertToNumpyArray(fp, arr)
+            fp_array.append(arr)
+        except Exception as e:
+            # Handle unexpected errors gracefully
+            print(f"Error processing SMILES: {smiles}. Exception: {e}")
+            fp_array.append(np.zeros(1024, dtype=np.int8))
+    
+    # Convert the list of arrays to a NumPy array
+    return np.array(fp_array)
+
+
+
 def transform_index(smiles1, smiles2, index):
     if smiles1 == smiles2:
         return index
+
+
+
 def count_subgroup_number(subgroup_smarts, smiles_mol):
     mol_of_interest = Chem.MolFromSmiles(smiles_mol)
     OH = Chem.MolFromSmarts(subgroup_smarts)
     subgroup_pattern = mol_of_interest.GetSubstructMatches(OH)    
     return len(subgroup_pattern)
+
+
+
 def linear_slope(m, x, a):
     return m*x + a
-    
+
+
+
 def plot_scatter(df_column_1, df_column_2, plottitle=None, plotname=None, x_axis_title=None, y_axis_title=None, ylim=None, xlim=None):
     plt.figure(figsize=(10, 10))
     if plottitle !=None:
@@ -126,12 +187,18 @@ def plot_scatter(df_column_1, df_column_2, plottitle=None, plotname=None, x_axis
 
     plt.savefig(plotname)
     plt.clf()
+
+
+
 def heatmap_corr(corr_matrix, plottitle, plotname):
     plt.figure(figsize=(10, 6))
     sns.heatmap(corr_matrix, annot=True, cmap="coolwarm", fmt=".2f")
     plt.title(plottitle)
     plt.savefig(plotname)
     plt.clf()
+
+
+
 def combine_lit_assays(column_1, column_2):
     df_combined = pd.DataFrame()
     df_combined["Lit_1"] = column_1
