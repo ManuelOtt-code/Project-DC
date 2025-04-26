@@ -57,6 +57,13 @@ def convert_units(row):
 
 
 
+#Convert IC50 values in nM into pIC50 values
+def convert_ic50_to_pic50(IC50_value):
+    pIC50_value = 9 - math.log10(IC50_value) #9 for nano molar
+    return pIC50_value
+
+
+
 def canonicalize(smiles):
     try:
 
