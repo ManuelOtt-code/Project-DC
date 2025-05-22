@@ -3,7 +3,7 @@
 Data Extraction & Curation:
 Contains all the .csv files necessary to train the models.
 
-Literature:
+Literature_documentation:
 Contains the working journal which documents the step of this project. (working-journal-google-docs.txt)
 Contains the literature used in the project (Literature_antiox.txt)
 
