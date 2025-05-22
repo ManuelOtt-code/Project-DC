@@ -1,15 +1,11 @@
 
 
-To obtain the code the first time clone with:
+Data Extraction & Curation:
+Contains all the .csv files necessary to train the models.
 
-git clone https://github.com/ManuelOtt-code/Project-DC.git
+Literature:
+Contains the working journal which documents the step of this project. (working-journal-google-docs.txt)
+Contains the literature used in the project (Literature_antiox.txt)
 
-Before working on the project use:
-
-git pull origin master
-
-If you made some changes use:
-
-git add . \n
-git commit -m "Describe your changes here" \n
-git push origin master
+Models:
+Contains the .ipynb file where the code to train and evaluate the models is contained. (With_MF_ML_model_training.ipynb)
