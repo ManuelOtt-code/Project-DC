@@ -1,4 +1,10 @@
+How to handle our project succesfully: 
 
+Open the file "Data_extraction+processing.ipynb"
+Follow the instructions
+Go to https://github.com/ManuelOtt-code/Project-DC/blob/master/data_extraction%2Bcuration/df_dpph.csv to find the generated dataframe
+
+Now open 
 
 data_xtraction+Curation:
 Contains all the .csv files necessary to train the models.
