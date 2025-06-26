@@ -1,4 +1,4 @@
-Instructions on how to use the codes are given in the files. Order of files that have to be opened: All other files are either outdated or where for us to play around. 
+Instructions on how to use the codes are given in the files. Order of files that have to be opened: 
 
 "Data_extraction+processing.ipynb"
 
@@ -9,6 +9,8 @@ Data_curation+split.ipynb
 03b_Mordred_ML_training.ipynb
 
 04_Final_ML_training.ipynb
+
+All other files are either outdated or where for us to play around. 
 
 There are additional files on google drive, for which you find the links here as well as in the files where they occur: 
 
