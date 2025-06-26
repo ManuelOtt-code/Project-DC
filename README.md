@@ -1,8 +1,8 @@
 Instructions on how to use the codes are given in the files. Order of files that have to be opened: 
 
-"Data_extraction+processing.ipynb"
+01_Data_extraction+processing.ipynb
 
-Data_curation+split.ipynb 
+02_Data_curation+split.ipynb 
 
 03a_Morgan_ML_training.ipynb
 
