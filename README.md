@@ -6,6 +6,8 @@ Instructions on how to use the codes are given in the files. Order of files that
 
 03a_Morgan_ML_training.ipynb
 
+03b_Mordred_Feature_Calculations.ipynb
+
 03b_Mordred_ML_training.ipynb
 
 04_Final_ML_training.ipynb
